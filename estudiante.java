@@ -6,6 +6,22 @@ public class estudiante {
     private double ingles;
     private double promedio;
 
+    // ------------------------------------------------------------------
+    // constructor
+    public estudiante(String m, String n) { // declara variables a usar
+        // El objeto es construir e inicializar el objeto
+        this.matricula = m; // setters == establecedores
+        this.nombre = n; // getters == captadores
+    }
+
+    public String getMatricula() { // capta
+        return matricula;
+    }
+
+    public void setMatricula(String matric) { // variable diferente
+        this.matricula = matric; // establece
+    }
+
     // --------------------------------------------------------------------
     // constructor de nombre
     public String getNombre() {
@@ -49,24 +65,8 @@ public class estudiante {
         return promedio;
     }
 
-    public void setPromedio(double promedio) {
-        this.promedio = promedio;
-    }
-
-    // ------------------------------------------------------------------
-    // constructor
-    public estudiante(String m, String n) { // declara variables a usar
-        // El objeto es construir e inicializar el objeto
-        this.matricula = m; // setters == establecedores
-        this.nombre = n; // getters == captadores
-    }
-
-    public String getMatricula() { // capta
-        return matricula;
-    }
-
-    public void setMatricula(String matric) { // variable diferente
-        this.matricula = matric; // establece
+    public void setPromedio() {
+        this.promedio = (this.estructuras + this.evaluacion + this.ingles)/3;
     }
 
     // ------------------------------------------------------------------------------------------------------
@@ -77,4 +77,3 @@ public class estudiante {
     }
 
 }
-
