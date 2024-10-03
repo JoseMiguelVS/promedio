@@ -11,7 +11,7 @@ public class PromedioGrupo {
     public static BufferedReader bufer = new BufferedReader(new InputStreamReader(System.in));
     public static String entrada;
 
-    public static void leer_estudiantes() throws IOException {
+    public static void leerEstudiantes() throws IOException {
         String matricula, nombre;
         for (int i = 0; i < estudiantes.length; i++) {
             System.out.println("-----------------------------------------");
@@ -38,19 +38,29 @@ public class PromedioGrupo {
             e.setIngles(Double.parseDouble(entrada));
 
             e.setPromedio();
-            estudiantes[i] = e; //agregar un objeto Estudiante al arreglo
-            
+            estudiantes[i] = e; // agregar un objeto Estudiante al arreglo
+
         }
 
     }
 
+    public static void imprimirEstudiantes() { //No regresa nada
+        for (estudiante e : estudiantes) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public static double calcularPromedioGrupo(){ // regresa valores double ( calificaciones )
+        double suma = 0;
+
+        for( estudiante e: estudiantes){
+            suma += e.getPromedio();
+        }
+        return suma / estudiantes.length;
+    }
+
     public static void main(String[] args) throws IOException {
         int N; // El tamaño del arreglo
-
-        // Arreglo de un tipo de un dato abtracto
-        // Arreglo de tipo
-        double[] calificaciones; // arreglo de calificaciones
-        double suma = 0; // para sumar calificaciones
         double promedio; //
 
         System.out.println("Programa que calcula el promedio de un grupo: ");
@@ -61,21 +71,14 @@ public class PromedioGrupo {
         // construyendo el arreglo de estudiantes
         estudiantes = new estudiante[N];
 
-        // Construimos el arreglo de calificiones
-        calificaciones = new double[N];
+        // Lectura de la informacion de los estudiantes
+        leerEstudiantes();
 
-        // Leer las calificaciones de cada alumno
-        // for (int i = 0; i < calificaciones.length; i++) {
-        // System.out.println("Escribe la calificacion del alumno " + (i + 1) + ": ");
-        // entrada = bufer.readLine();
-        // calificaciones[i] = Double.parseDouble(entrada);
-        // suma += calificaciones[i];
-        // }
-        // promedio = suma / N;
-        System.out.println("Las calificaciones del grupo son: ");
-        for (int i = 0; i < calificaciones.length; i++) {
-            System.out.println(calificaciones[i]);
-        }
+        // Imprimir el contenudi de calificaciones
+        imprimirEstudiantes();
+
+        //Calcular promedio del grupo
+        promedio = calcularPromedioGrupo();
         System.out.println("El promedio del grupo es: " + promedio);
     }
 }

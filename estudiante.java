@@ -66,7 +66,7 @@ public class estudiante {
     }
 
     public void setPromedio() {
-        this.promedio = (this.estructuras + this.evaluacion + this.ingles)/3;
+        this.promedio = (this.estructuras + this.evaluacion + this.ingles) / 3;
     }
 
     // ------------------------------------------------------------------------------------------------------
